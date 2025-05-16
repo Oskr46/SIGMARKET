@@ -10,6 +10,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 1%;
+    user-select: none;
 }
 
 .items .input{
@@ -20,6 +21,7 @@
     margin:10px;
     border: none;
     background-color: rgb(228, 221, 221);
+    user-select: text;
 
 }
 
@@ -30,6 +32,7 @@
     font-size: 30px;
     margin: 0px 10px 0px 10px;
     padding: 5px;
+    user-select: none;
 }
 
 .search{
@@ -37,4 +40,6 @@
     width: 80px;
     height: 40px;
     border-radius: 10px;
+    user-select: none;
+    cursor: pointer;
 }
