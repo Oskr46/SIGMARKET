@@ -14,14 +14,14 @@ body{
 }
 
 .main_cont{
-    border-top: 65px solid black;
+    margin-top: -65px;
     width: 100vw;
     height: 100vh;
     background-image: url("../res/img/main_container.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    border-bottom: 120px solid black;
+    border-bottom: 100px solid black;
 }
 
 .welcome_msg_title{
