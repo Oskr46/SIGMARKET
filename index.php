@@ -37,6 +37,7 @@
             diseñadas para resaltar su individualidad y satisfacer su sentido del estilo.
         </p>
         <button class="welcome_button">Empieza a comprar ahora</button>
+
     </div>
     
 </body>
