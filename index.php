@@ -40,5 +40,26 @@
 
     </div>
     
+    <footer class="footer">
+        <div class="footer_content">
+            <div class="logo_and_info">
+                <img class="logo" src="./res/img/logo_smkt.png" alt="Logo de la tienda"></img>
+                <p class='info'>Tenemos prendas que se adaptan a tu estilo y que te enorgulleces de llevar. 
+                Desde ropa de mujer hasta de hombre.</p>
+            </div>
+
+            <div class="other_items">
+                <h2>AYUDA</h2>
+                <a class="items_footer" href=''>Terminos y condiciones</a>
+                <a class="items_footer" href=''>Politica de Privacidad</a>
+            </div>
+            <div class="other_items">
+                <h2>FAQ</h2>
+                <a class="items_footer" href=''>Cuenta</a>
+                <a class="items_footer" href=''>Ordenes</a>
+                <a class="items_footer" href=''>Pagos</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
