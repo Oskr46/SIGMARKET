@@ -4,6 +4,7 @@
     height: 400px;
     justify-content: center;
     align-items: center;
+    user-select: none;
 }
 
 .footer_content{

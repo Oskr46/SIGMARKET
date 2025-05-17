@@ -7,9 +7,9 @@
     border-bottom: 1px solid rgb(224, 224, 224);
     padding: 5px;
     padding-bottom: 10px;
-    min-width: 100%;
+    min-width: 100vw;
     max-width: auto;
-    min-height: 80px;
+    min-height: 1vh;
     max-height: auto;
     border-radius: 1%;
     user-select: none;
@@ -27,7 +27,7 @@
 .header_content .logo{
     justify-content: center;
     align-items: center;
-    margin: 15px 10px 0px 10px;
+    margin: 10px 10px 0px 30px;
 }
 
 .header_content .logo a{
@@ -38,10 +38,10 @@
     border-radius: 20px;
     min-height: 10px;
     max-height: 45px;
-    min-width: 400px;
+    min-width: 300px;
     max-width: auto;
     padding: 10px 10px 10px 60px;
-    margin: 5px 80px 0px 10px;
+    margin: 5px 80px 0px -50px;
     border: none;
     background-color: #f0f0f0;
     user-select: text;
@@ -55,10 +55,11 @@
 }
 
 .header .item{
-    width: auto;
+    width: 80px;
+    text-align: center;
     text-decoration: none;
     color: black;
-    font-size: 18px;
+    font-size: 15px;
     padding:2px;
     margin: 0px 20px 0px 20px;
     user-select: none;
@@ -72,13 +73,13 @@
 .header .item:hover{
     border-bottom: 3px solid rgba(0, 0, 0, 0.8);
     border-radius: 3px;
-    font-size: 19px;
+    font-size: 16px;
 }
 
 .search{
     position:relative;
-    top: 6px;
-    left: 65px;
+    top: 2px;
+    left: 5px;
     background-color: transparent;
     background-image: url("../res/img/find.png");
     background-position: center;
@@ -104,11 +105,12 @@
     height: 20px;
     width: 140px;
     text-decoration: none;
+    text-align: center;
     background-color: rgb(19, 19, 19);
     color: white;
-    padding: 13px;
-    margin: 0px 25px 0px 25px;
-    font-size: 16px;
+    padding: 10px;
+    margin: 5px 25px 0px -75px;
+    font-size: 14px;
     border-radius: 10px;
     justify-self: center;
     align-self: center;
@@ -120,10 +122,11 @@
     height: 20px;
     width: 140px;
     text-decoration: none;
-    padding: 13px;
+    text-align: center;
+    padding: 10px;
     color: black;
-    margin: 5px;
-    font-size: 16px;
+    margin: 5px 25px 0px -20px;
+    font-size: 14px;
     border-radius: 10px;
     justify-self: center;
     align-self: center;
@@ -131,9 +134,9 @@
 }
 
 .sign_in:hover{
-    font-size: 17px;
+    font-size: 15px;
 }
 
 .sign_up:hover{
-    font-size: 17px;
+    font-size: 15px;
 }
