@@ -1,45 +1,132 @@
+@import url('./fonts.css');
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:'Cuerpo-Satoshi';
+    --color-hover:#d3d3d3;
+}
+
 .header{
+    position: fixed;
+    top: 0;
     display: flex;
     flex-direction: row;
+    background-color: #ffffff;
     border-bottom: 1px solid rgb(224, 224, 224);
     padding: 5px;
     padding-bottom: 10px;
-    width: 95%;
-    height: 55px;
-    justify-self: center;
-    justify-content: center;
-    align-items: center;
+    min-width: 95%;
+    max-width: auto;
+    min-height: 60px;
+    max-height: auto;
     border-radius: 1%;
     user-select: none;
+    overflow: hidden;
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
 }
 
-.items .input{
+.header_content{
+    display: flex;
+    flex-direction: row;
+}
+
+.header_content .logo{
+    justify-content: center;
+    align-items: center;
+    margin: 15px 10px 0px 10px;
+}
+
+.header_content .logo a{
+    text-decoration: none;
+}
+
+.header_content .search_input{
     border-radius: 20px;
-    height: 20px;
-    width: 400px;
-    padding: 10px 10px 10px 20px;
-    margin:10px;
+    height: auto;
+    min-width: 300px;
+    max-width: auto;
+    padding: 10px 10px 10px 60px;
+    margin: 5px 20px 0px 10px;
     border: none;
-    background-color: rgb(228, 221, 221);
+    background-color: #f0f0f0;
     user-select: text;
-
+    font-family: 'Cuerpo-Satoshi';
+    outline: none;
+    transition: all 250ms ease;
+    justify-self: center;
+    align-self: center;
 }
 
-.header a{
+.header_content .search_input:focus{
+    background-color: var(--color-hover);
+}
+
+.header .item{
     text-decoration: none;
     color: black;
-    font-weight: 600;
-    font-size: 30px;
-    margin: 0px 10px 0px 10px;
-    padding: 5px;
+    font-size: 18px;
+    padding:2px;
+    margin: 0px 20px 0px 20px;
     user-select: none;
+    border: none;
+    background-color: transparent;
+    border-bottom: 3px solid transparent;
+    transition: all 250ms ease;
+    align-self: center;
+}
+
+.header .item:hover{
+    border-bottom: 3px solid rgba(0, 0, 0, 0.8);
+    border-radius: 3px;
 }
 
 .search{
+    position:relative;
+    top: 8px;
+    left: 65px;
+    background-color: transparent;
+    background-image: url("../res/img/find.png");
+    background-position: center;
+    background-repeat: no-repeat;
     border:none;
-    width: 80px;
-    height: 40px;
+    width: 50px;
+    height: 45px;
+    padding: 10px;
     border-radius: 10px;
     user-select: none;
     cursor: pointer;
+    font-family: 'Cuerpo-Satoshi';
+    font-size: 16px;
+    transition: all 250ms ease;
+}
+
+.search:hover{
+    background-image: url('../res/img/find_hover.png');
+    background-repeat: no-repeat;
+}
+
+.sign_in{
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    padding: 13px;
+    margin: 5px;
+    font-size: 16px;
+    border-radius: 10px;
+    justify-self: center;
+    align-self: center;
+}
+
+.sign_up{
+    text-decoration: none;
+    padding: 13px;
+    color: black;
+    margin: 5px;
+    font-size: 16px;
+    border-radius: 10px;
+    justify-self: center;
+    align-self: center;
 }
