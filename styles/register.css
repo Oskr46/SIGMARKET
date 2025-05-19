@@ -1,0 +1,64 @@
+.register{
+    width: 100vw;
+    height: 120vh;
+    background-color: #ffffff;
+    color: black;
+    font-size: 32px;
+}
+
+.register_title{
+    margin: 80px 20px 20px 60px;
+}
+
+.register_title h2{
+    font-family: 'Encabezados-FONTSPRING';
+    font-size: 32px;
+}
+
+.register_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 2px solid #e0e0e0;
+    width:80vw;
+    height: 450px;
+    margin: 30px 20px 20px 150px;
+    font-size: 26px;
+    font-family: "Cuerpo-Satoshi";
+}
+
+.register_container_title h3{
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom:2px solid #e0e0e0;
+}
+
+.register_container_data {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    text-align: left;
+    justify-content: center;
+    
+}
+
+.register_container_data input{
+    align-self: center;
+    justify-self: center;
+    border-radius: 20px;
+    height: 20px;
+    width: 250px;
+    padding: 10px 10px 10px 40px;
+    margin: 0px 40px 20px 40px;
+    border: none;
+    background-color: #f0f0f0;
+    user-select: text;
+    font-family: 'Cuerpo-Satoshi';
+    outline: none;
+    transition: all 250ms ease;
+}
+
+.register_container_data input:focus{
+    background-color: var(--color-hover);
+}
