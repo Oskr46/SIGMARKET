@@ -109,7 +109,7 @@
     background-color: rgb(19, 19, 19);
     color: white;
     padding: 10px;
-    margin: 5px 25px 0px -75px;
+    margin: 5px 25px 0px -55px;
     font-size: 14px;
     border-radius: 10px;
     justify-self: center;
@@ -125,7 +125,7 @@
     text-align: center;
     padding: 10px;
     color: black;
-    margin: 5px 25px 0px -20px;
+    margin: 5px 25px 0px -5px;
     font-size: 14px;
     border-radius: 10px;
     justify-self: center;
@@ -139,4 +139,16 @@
 
 .sign_up:hover{
     font-size: 15px;
+}
+
+.header_content .user_settings{
+    justify-content: center;
+    align-items: center;
+    margin: 15px -65px 10px 10px;
+}
+
+.header_content .cart{
+    justify-content: center;
+    align-items: center;
+    margin: 15px 10px 10px -35px;
 }
