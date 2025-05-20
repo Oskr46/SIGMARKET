@@ -22,6 +22,7 @@
             <div class ="register_container">
                 <div class="register_container_title">
                     <h3>Completa la informacion para crear tu cuenta</h3>
+                </div>
                     <div class="register_container_data">
                         <label for="email">Correo Electronico</label>
                         <input name= "email" type="text" placeholder="Email"/>
@@ -38,8 +39,8 @@
                         <label for="password">Contraseña</label>
                         <input name= "password" type="text" placeholder="Crea una Contraseña"/>
                     </div>
-                    </div> 
-                </div>
+                    <button class="confirmar" type="submit">Confirmar registro</button>
+                </div> 
             </div> 
         </div>
 

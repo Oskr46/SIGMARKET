@@ -7,12 +7,12 @@
 }
 
 .register_title{
-    margin: 80px 20px 20px 60px;
+    margin: 80px 20px 0px 60px;
 }
 
 .register_title h2{
     font-family: 'Encabezados-FONTSPRING';
-    font-size: 32px;
+    font-size: 24px;
 }
 
 .register_container{
@@ -21,10 +21,10 @@
     align-items: center;
     text-align: center;
     border: 2px solid #e0e0e0;
-    width:80vw;
-    height: 450px;
-    margin: 30px 20px 20px 150px;
-    font-size: 26px;
+    width:640px;
+    height: 420px;
+    margin: 10px 20px 20px 380px;
+    font-size: 20px;
     font-family: "Cuerpo-Satoshi";
 }
 
@@ -37,7 +37,7 @@
 .register_container_data {
     display: flex;
     flex-direction: row;
-    font-size: 20px;
+    font-size: 16px;
     text-align: left;
     justify-content: center;
     
@@ -61,4 +61,32 @@
 
 .register_container_data input:focus{
     background-color: var(--color-hover);
+}
+
+.register_container_data label{
+    margin-top: 7px;
+}
+
+.register_container .confirmar{
+    height: 40px;
+    width: 200px;
+    border: transparent;
+    text-align: center;
+    background-color: rgb(19, 19, 19);
+    color: white;
+    padding: 10px;
+    margin: 5px 0px 0px 0px;
+    font-size: 14px;
+    font-family: "Cuerpo-Satoshi";
+    border-radius: 20px;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    transition: all 250ms ease;
+}
+
+.register_container .confirmar:hover{
+    font-size: 15px;
 }
