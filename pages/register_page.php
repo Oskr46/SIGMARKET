@@ -1,4 +1,6 @@
-<?php require('../components/header_footer.php')?>
+<?php include('../components/header_footer.php');
+include('../components/conexion.php');
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
