@@ -14,8 +14,12 @@ body{
 }
 
 .main_cont{
+<<<<<<< HEAD
     margin-top: 45px;
-    width: 100%;
+=======
+    margin-top: -105px;
+>>>>>>> Jd_login
+    width: 100vw;
     height: 100vh;
     background-image: url("../res/img/main_container.png");
     background-repeat: no-repeat;

@@ -23,12 +23,14 @@ body{
     background-position: center;
 }
 
+
+
 .square{
     width: 355px;
     height: 375px;
     border-radius: 25%;
     background-color: rgb(233, 229, 229);
-    background-image: url('../res/img/login_img.png');
+    background-image: url('/res/img/Rectangle\ 2\ 1.png');
 
 }
 
@@ -46,7 +48,7 @@ body{
 }
 .boxes .user_box{
     position: absolute;
-    top: 37vh;
+    top: 38vh;
     right: 25vw;
     z-index: 2;
     border-radius: 20px;
@@ -54,7 +56,7 @@ body{
     max-height: 45px;
     min-width: 300px;
     max-width: auto;
-    padding: 15px 15px 15px 15px;
+    padding: 10px 15px 10px 15px;
   
     border: none;
     background-color: #f0f0f0;
@@ -66,7 +68,7 @@ body{
 
 .boxes .password_box{
     position: absolute;
-    top: 46vh;
+    top: 47vh;
     right: 25vw;
     z-index: 2;
     border-radius: 20px;
@@ -74,7 +76,7 @@ body{
     max-height: 45px;
     min-width: 300px;
     max-width: auto;
-    padding: 15px 15px 15px 15px;
+    padding: 10px 15px 10px 15px;
   
     border: none;
     background-color: #f0f0f0;
@@ -89,7 +91,7 @@ body{
     font-family: 'Cuerpo-Satoshi';
     position: absolute; 
     top: 30vh; 
-    right: 22vw; 
+    right: 27vw; 
     z-index: 3; 
     width: 300px; 
     text-align: left; 
@@ -110,7 +112,7 @@ body{
 .forgot_password{
     position: absolute;
     top: 55vh;
-    right: 28.5vw;
+    right: 30vw;
     z-index: 2;
     font-size: 14px;
     color: #747474; /* Color gris discreto */

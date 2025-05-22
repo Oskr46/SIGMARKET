@@ -32,7 +32,7 @@ include("../../components/header_footer.php");
             <div class="register_container_data">
                 <p><a class ="redir" href="<?php echo BASE_URL;?>index.php">Ir a Pagina Principal</a></p>
     
-                <p><a class ="redir" href="<?php echo BASE_URL;?>pages/login_modules/login_page.php">Iniciar Sesión</a></p>
+                <p><a class ="redir" href="<?php echo BASE_URL;?>">Iniciar Sesión</a></p>
             </div>
         </div>
     </div>  
