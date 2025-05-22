@@ -20,7 +20,7 @@ function show_header(){
             <button class="search"></button>
             <input class="search_input" placeholder="Busca un Producto">
             <?php if(!isset($admin) && !isset($name) && !isset($email)): ?>
-                <a class="sign_in" href="<?php echo BASE_URL; ?>pages/register_page.php">Registrate Ahora</a>
+                <a class="sign_in" href="<?php echo BASE_URL; ?>pages/register_module/register_page.php">Registrate Ahora</a>
                 <a class="sign_up" href="<?php echo BASE_URL; ?>pages/login_page.php">Iniciar Sesion</a>
             <?php else: ?>
                 <a class="cart" href="<?php echo BASE_URL; ?>cart/">

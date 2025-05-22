@@ -1,13 +1,13 @@
 .register{
     width: 100vw;
-    height: 120vh;
+    height: 75vh;
     background-color: #ffffff;
     color: black;
     font-size: 32px;
 }
 
 .register_title{
-    margin: 80px 20px 0px 60px;
+    margin: 80px 20px -80px 60px;
 }
 
 .register_title h2{
@@ -24,8 +24,8 @@
     text-align: center;
     border: 2px solid #e0e0e0;
     width:640px;
-    height: 420px;
-    margin: 10px 20px 20px 0px;
+    height: 480px;
+    margin: 100px 20px 20px 0px;
     font-size: 20px;
     font-family: "Cuerpo-Satoshi";
 }
@@ -40,9 +40,9 @@
     display: flex;
     flex-direction: row;
     font-size: 16px;
-    text-align: left;
-    justify-content: center;
-    
+    text-align: center;
+    justify-items: center;
+    align-items: center;
 }
 
 .register_container_data input{
@@ -91,4 +91,42 @@
 
 .register_container .confirmar:hover{
     font-size: 15px;
+}
+
+.redir{
+    text-decoration: none;
+    margin: 100px 10px 20px 0px;
+    width: 260px;
+    height: 60px;
+    padding:12px;
+    text-align: center;
+    font-family: 'Cuerpo-Satoshi';
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 250ms ease;
+    user-select: none;
+}
+
+.redir:hover{
+    font-size: 17px;
+    background-color: rgb(15, 15, 15);
+}
+
+.confirm_register{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    padding: 0px 30px 30px 30px;
+    border: 2px solid #e0e0e0;
+    width:500px;
+    height: auto;
+    margin: 100px 20px 20px 0px;
+    font-size: 20px;
+    font-family: "Cuerpo-Satoshi";
 }

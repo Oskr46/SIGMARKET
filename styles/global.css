@@ -10,7 +10,7 @@ body{
     --color-hover:#d3d3d3;
     flex-direction: column;
     overflow-x: hidden;
-    background-color: black;
+    background-color: rgb(255, 255, 255);
 }
 
 .main_cont{
