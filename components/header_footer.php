@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 require_once(__DIR__ . '/../config.php');
 session_start();
 
@@ -10,9 +9,6 @@ $email = $_SESSION['email'] ?? null;
 
 function show_header(){
     global $admin, $name, $email;
-=======
-    function show_header(){
->>>>>>> Jd_login
 ?>
     <div class="header_content">
             <div class="logo">
@@ -25,7 +21,7 @@ function show_header(){
             <input class="search_input" placeholder="Busca un Producto">
             <?php if(!isset($admin) && !isset($name) && !isset($email)): ?>
                 <a class="sign_in" href="<?php echo BASE_URL; ?>pages/register_module/register_page.php">Registrate Ahora</a>
-                <a class="sign_up" href="<?php echo BASE_URL; ?>pages/login_page.php">Iniciar Sesion</a>
+                <a class="sign_up" href="<?php echo BASE_URL; ?>pages/login_modules/login_page.php">Iniciar Sesion</a>
             <?php else: ?>
                 <a class="cart" href="<?php echo BASE_URL; ?>cart/">
                     <img src="<?php echo BASE_URL; ?>res/img/cart_icon.png" alt="Carrito de compras"/>
