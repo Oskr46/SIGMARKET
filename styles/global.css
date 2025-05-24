@@ -14,7 +14,7 @@ body{
 }
 
 .main_cont{
-    margin-top: -105px;
+    margin-top: 50px;
     width: 100vw;
     height: 100vh;
     background-image: url("../res/img/main_container.png");
