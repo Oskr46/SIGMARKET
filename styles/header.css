@@ -27,11 +27,7 @@
 .header_content .logo{
     justify-content: center;
     align-items: center;
-<<<<<<< HEAD
     margin: 10px 0px 0px 80px;
-=======
-    margin: 10px 10px 0px 30px;
->>>>>>> Jd_login
 }
 
 .header_content .logo a{
@@ -42,11 +38,7 @@
     border-radius: 20px;
     min-height: 10px;
     max-height: 45px;
-<<<<<<< HEAD
     min-width: 250px;
-=======
-    min-width: 300px;
->>>>>>> Jd_login
     max-width: auto;
     padding: 10px 10px 10px 60px;
     margin: 5px 80px 0px -50px;
@@ -117,11 +109,7 @@
     background-color: rgb(19, 19, 19);
     color: white;
     padding: 10px;
-<<<<<<< HEAD
     margin: 5px 25px 0px -55px;
-=======
-    margin: 5px 25px 0px -75px;
->>>>>>> Jd_login
     font-size: 14px;
     border-radius: 10px;
     justify-self: center;
@@ -137,11 +125,7 @@
     text-align: center;
     padding: 10px;
     color: black;
-<<<<<<< HEAD
     margin: 5px 25px 0px -5px;
-=======
-    margin: 5px 25px 0px -20px;
->>>>>>> Jd_login
     font-size: 14px;
     border-radius: 10px;
     justify-self: center;
@@ -155,7 +139,6 @@
 
 .sign_up:hover{
     font-size: 15px;
-<<<<<<< HEAD
 }
 
 .header_content .user_settings{
@@ -168,6 +151,4 @@
     justify-content: center;
     align-items: center;
     margin: 15px 10px 10px -35px;
-=======
->>>>>>> Jd_login
 }
