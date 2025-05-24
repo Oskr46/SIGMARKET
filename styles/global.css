@@ -10,7 +10,11 @@ body{
     --color-hover:#d3d3d3;
     flex-direction: column;
     overflow-x: hidden;
+<<<<<<< HEAD
     background-color: rgb(255, 255, 255);
+=======
+    background-color: black;
+>>>>>>> d0101d5 (Todos los archivos fuera)
 }
 
 .main_cont{
