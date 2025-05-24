@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión - SIGMARKET</title>
-    <link rel="stylesheet" href="styles/global_login.css">
-    <link rel="icon" href="res/img/favicon_white.png" type="image/x-icon">
-    <?php require('./components/header_footer.php')?>
+    <link rel="stylesheet" href="../../styles/global_login.css">
+    <link rel="icon" href="../..res/img/favicon_white.png" type="image/x-icon">
+    <?php require('../../components/header_footer.php')?>
 </head>
 <body>
      <header class="header"> 
@@ -16,7 +16,7 @@
     <div class="main_cont">
         <form action="" method="post">
             <div class="contenedor">        
-                <div class="square"></div>
+                <div class="square">a</div>
             </div>  
             <div class="label">
                 <label for="user">Iniciar Sesión</label>
