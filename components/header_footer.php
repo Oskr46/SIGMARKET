@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 require_once(__DIR__ . '/../config.php');
 session_start();
 
@@ -10,9 +9,6 @@ $email = $_SESSION['email'] ?? null;
 
 function show_header(){
     global $admin, $name, $email;
-=======
-    function show_header(){
->>>>>>> Jd_login
 ?>
     <div class="header_content">
             <div class="logo">
