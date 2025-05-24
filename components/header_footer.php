@@ -1,5 +1,18 @@
 <?php
+<<<<<<< HEAD
     function show_header(){
+=======
+require_once(__DIR__ . '../config.php');
+session_start();
+
+// Verificación de sesión mejorada
+$admin = $_SESSION['admin'] ?? null;
+$name = $_SESSION['name'] ?? null;
+$email = $_SESSION['email'] ?? null;
+
+function show_header(){
+    global $admin, $name, $email;
+>>>>>>> 72d22e2 (Arreglo de Conflictos)
 ?>
     <div class="header_content">
             <div class="logo">
