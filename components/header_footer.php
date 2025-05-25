@@ -8,7 +8,6 @@ $name = $_SESSION['name'] ?? null;
 $email = $_SESSION['email'] ?? null;
 
 function show_header(){
-    global $admin, $name, $email;
 ?>
     <div class="header_content">
             <div class="logo">

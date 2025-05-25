@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<?php include('./components/header_footer.php')?>
-=======
-<?php require('./components/header_footer.php')?>
->>>>>>> ea9b869 (Todos los archivos fuera)
+<?php require('components/header_footer.php');?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
