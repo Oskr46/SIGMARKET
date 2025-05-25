@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 <?php require('components/header_footer.php');?>
-=======
-<?php require('./components/header_footer.php')?>
->>>>>>> f6f811a06cc31e028ce5fa33818713d5ff5d5062
 <!DOCTYPE html>
 <html lang="es">
 <head>

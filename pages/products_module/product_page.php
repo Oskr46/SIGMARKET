@@ -1,5 +1,5 @@
-<?php include('../components/header_footer.php');
-include('../components/conexion.php');
+<?php include('../../components/header_footer.php');
+include('../../components/conexion.php');
 
 $conn = connectDB();
 mysqli_set_charset($conn, "utf8");
