@@ -16,7 +16,7 @@
     <div class="main_cont">
         <form action="" method="post">
             <div class="contenedor">        
-                <div class="square">a</div>
+                <div class="square"></div>
             </div>  
             <div class="label">
                 <label for="user">Iniciar Sesión</label>

@@ -1,6 +1,10 @@
 .register{
     width: 100vw;
+<<<<<<< HEAD
     height: 75vh;
+=======
+    height: 100vh;
+>>>>>>> f6f811a06cc31e028ce5fa33818713d5ff5d5062
     background-color: #ffffff;
     color: black;
     font-size: 32px;
@@ -66,7 +70,11 @@
 }
 
 .register_container_data label{
+<<<<<<< HEAD
     margin-top: 7px;
+=======
+    margin-top: -20px;
+>>>>>>> f6f811a06cc31e028ce5fa33818713d5ff5d5062
 }
 
 .register_container .confirmar{
