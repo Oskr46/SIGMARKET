@@ -14,7 +14,7 @@
     </header>  
     
     <div class="main_cont">
-        <form action="" method="post">
+        <form action="mk_session.php" method="post">
             <div class="contenedor">        
                 <div class="square"></div>
             </div>  

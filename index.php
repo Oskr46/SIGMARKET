@@ -1,4 +1,7 @@
-<?php require('components/header_footer.php');?>
+<?php
+session_start();
+require('components/header_footer.php');
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

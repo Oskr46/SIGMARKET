@@ -144,11 +144,11 @@
 .header_content .user_settings{
     justify-content: center;
     align-items: center;
-    margin: 15px -65px 10px 10px;
+    margin: 15px 50px 0px 10px;
 }
 
 .header_content .cart{
     justify-content: center;
     align-items: center;
-    margin: 15px 10px 10px -35px;
+    margin:15px 10px 0px -35px;
 }
