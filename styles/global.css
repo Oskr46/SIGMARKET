@@ -1,6 +1,6 @@
-@import url('./fonts.css');
-@import url('./header.css');
-@import url('./footer.css');
+@import url('fonts.css');
+@import url('header.css');
+@import url('footer.css');
 
 body{
     display: flex;
