@@ -27,7 +27,7 @@
 .header_content .logo{
     justify-content: center;
     align-items: center;
-    margin: 10px 10px 0px 30px;
+    margin: 10px 0px 0px 80px;
 }
 
 .header_content .logo a{
@@ -38,7 +38,7 @@
     border-radius: 20px;
     min-height: 10px;
     max-height: 45px;
-    min-width: 300px;
+    min-width: 250px;
     max-width: auto;
     padding: 10px 10px 10px 60px;
     margin: 5px 80px 0px -50px;
@@ -61,7 +61,7 @@
     color: black;
     font-size: 15px;
     padding:2px;
-    margin: 0px 20px 0px 20px;
+    margin: 5px 10px 0px 10px;
     user-select: none;
     border: none;
     background-color: transparent;
@@ -109,7 +109,7 @@
     background-color: rgb(19, 19, 19);
     color: white;
     padding: 10px;
-    margin: 5px 25px 0px -75px;
+    margin: 5px 25px 0px -55px;
     font-size: 14px;
     border-radius: 10px;
     justify-self: center;
@@ -125,7 +125,7 @@
     text-align: center;
     padding: 10px;
     color: black;
-    margin: 5px 25px 0px -20px;
+    margin: 5px 25px 0px -5px;
     font-size: 14px;
     border-radius: 10px;
     justify-self: center;
@@ -139,4 +139,16 @@
 
 .sign_up:hover{
     font-size: 15px;
+}
+
+.header_content .user_settings{
+    justify-content: center;
+    align-items: center;
+    margin: 15px 50px 0px 10px;
+}
+
+.header_content .cart{
+    justify-content: center;
+    align-items: center;
+    margin:15px 10px 0px -35px;
 }

@@ -1,4 +1,7 @@
-<?php require('./components/header_footer.php')?>
+<?php
+session_start();
+require('components/header_footer.php');
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -24,7 +27,7 @@
     </div>
     
     <footer class="footer">
-        <?php show_footer()?>
+        <?php show_footer();?>
     </footer>
 </body>
 </html>
