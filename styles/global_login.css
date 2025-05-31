@@ -1,0 +1,184 @@
+@import url('./fonts.css');
+@import url('./header.css');
+@import url('./footer.css');
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:'Cuerpo-Satoshi';
+    --color-hover:#d3d3d3;
+    flex-direction: column;
+    overflow-x: hidden;
+    background-color: rgba(255, 249, 249, 0);
+}
+
+.main_cont{
+    margin-top: 65px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.square{
+    width: 355px;
+    height: 375px;
+    border-radius: 25%;
+    background-color: rgb(233, 229, 229);
+    background-image: url('../res/img/login_image.png');
+
+}
+
+.contenedor {
+    display: flex;
+    position: absolute;
+    left: 25vw;  /* Se mueve según el ancho de la ventana */
+    top: 75vh;   /* Se mueve según la altura de la ventana */
+    transform: translate(-50%, -50%);
+    height: 100vh; /* Ocupa toda la pantalla */
+ 
+}
+.boxes{
+    display: flex;
+}
+.boxes .user_box{
+    position: absolute;
+    top: 38vh;
+    right: 25vw;
+    z-index: 2;
+    border-radius: 20px;
+    min-height: 10px;
+    max-height: 45px;
+    min-width: 300px;
+    max-width: auto;
+    padding: 10px 15px 10px 15px;
+  
+    border: none;
+    background-color: #f0f0f0;
+    user-select: text;
+    font-family: 'Cuerpo-Satoshi';
+    outline: none;
+    transition: all 250ms ease;
+}
+
+.boxes .password_box{
+    position: absolute;
+    top: 47vh;
+    right: 25vw;
+    z-index: 2;
+    border-radius: 20px;
+    min-height: 10px;
+    max-height: 45px;
+    min-width: 300px;
+    max-width: auto;
+    padding: 10px 15px 10px 15px;
+  
+    border: none;
+    background-color: #f0f0f0;
+    user-select: text;
+    font-family: 'Cuerpo-Satoshi';
+    outline: none;
+    transition: all 250ms ease;
+}
+.label {
+    font-size: 25px;
+    color: black;
+    font-family: 'Cuerpo-Satoshi';
+    position: absolute; 
+    top: 30vh; 
+    right: 27vw; 
+    z-index: 3; 
+    width: 300px; 
+    text-align: left; 
+}
+
+.cuadro {
+    position: absolute;
+    width: 379px; /* Un poco más ancho que los inputs */
+    height: 370px; /* Altura suficiente para ambos inputs */
+    border-radius: 20px;
+    background-color: transparent;
+    border: 2px solid #d3d3d3; /* Borde visible */
+    top: 27vh; /* Posición ajustada */
+    right: 23vw;
+    z-index: 1; /* Debajo de los inputs pero encima del fondo */
+}
+
+.forgot_password{
+    position: absolute;
+    top: 55vh;
+    right: 30vw;
+    z-index: 2;
+    font-size: 14px;
+    color: #747474; /* Color gris discreto */
+    text-decoration: none; /* Elimina el subrayado */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent; /* Fondo transparente */
+    border: none; /* Sin bordes */
+    padding: 0; /* Sin padding adicional */
+    width: auto; /* Ancho según contenido */
+}
+
+/* Efecto hover - Cambio de color y subrayado sutil */
+.forgot_password:hover {
+    color: #565656; /* Color azul al pasar el mouse */
+    text-decoration: underline; /* Subrayado solo al hover */
+}
+
+/* Efecto active - Ligero desplazamiento */
+.forgot_password:active {
+    transform: translateY(1px); /* Efecto de "presionado" */
+    color: #565656; /* Color más oscuro al hacer clic */
+}
+
+.bttn_iniciar {
+    position: absolute;
+    top: 60vh; /* Posición vertical debajo del campo de contraseña */
+    right: 24vw; /* Misma alineación horizontal que los inputs */
+    width: 350px;
+    height: 40px; /* Altura total incluyendo padding */
+    background-color: rgb(19, 19, 19);
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    font-family: 'Cuerpo-Satoshi';
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: all 250ms ease;
+    z-index: 2;
+    
+   
+}
+
+/* Efectos hover y active */
+.bttn_iniciar:hover {
+    background-color: #333;
+}
+
+.bttn_iniciar:active {
+    transform: translateY(1px); /* Efecto de "presionado" */
+}
+
+.bttn_crear{
+    position: absolute;
+    top: 68vh; /* Posición vertical debajo del campo de contraseña */
+    right: 24vw; /* Misma alineación horizontal que los inputs */
+    width: 350px;
+    height: 40px; /* Altura total incluyendo padding */
+    background-color: rgb(63, 63, 63);
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    font-family: 'Cuerpo-Satoshi';
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: all 250ms ease;
+    z-index: 2;
+    
+}
