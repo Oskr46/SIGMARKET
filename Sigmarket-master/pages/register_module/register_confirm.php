@@ -3,6 +3,7 @@ include ('../../components/conexion.php');
 
 $email_registrado = $_GET['email_reg'];  
 
+
 $conn = connectDB();
 //Estableciendo caracteres UTF8 para BD, importante para acentos y eñes en MySQL                            
 mysqli_set_charset($conn, "utf8");

@@ -4,7 +4,7 @@ function show_header(){
 ?>
     <div class="header_content">
             <div class="logo">
-                <a href="<?php echo BASE_URL; ?>"><img src="<?php echo BASE_URL; ?>res/img/logo_smkt.png" alt="Logo SIGMARKET"></a>
+                <a href="<?php echo BASE_URL; ?>"><img src="<?php echo BASE_URL; ?>/res/img/logo_smkt.png" alt="Logo SIGMARKET"></a>
             </div>
             <a class="item" href="<?php echo BASE_URL; ?>pages/products_module/product_page">Productos</a>
             <a class="item" href="<?php echo BASE_URL; ?>sale/">En venta</a>

@@ -1,6 +1,9 @@
 <?php
 include ('../../components/conexion.php');
 
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 $email = $_POST['email'];
 $password = $_POST['password'];
 $name = $_POST['name'];
@@ -31,19 +34,42 @@ if ($numResults != 0) {
     exit(); 
     }
 
-$sql = "INSERT INTO user (emailUser, passwordUser, nameUser, sNameUser) 
-VALUES ('$email', '$password_crypted', '$name', '$sName')";
+$required_columns = ['emailUser', 'passwordUser', 'nameUser', 'sNameUser'];
 
-if (mysqli_query($conn, $sql)) {
-    echo "Nuevo registro creado exitosamente";
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+// Construye la consulta dinámicamente
+$columns = implode(', ', $required_columns);
+$placeholders = implode(', ', array_fill(0, count($required_columns), '?'));
+
+$sql = "INSERT INTO user (emailUser, passwordUser, nameUser, sNameUser, adminBool) 
+        VALUES (?, ?, ?, ?, 0)";
+
+$stmt = mysqli_prepare($conn, $sql);
+
+// Verifica si hubo error en prepare
+if ($stmt === false) {
+    die("Error al preparar la consulta: " . mysqli_error($conn));
 }
 
+// 6. Bind parameters (CORREGIDO el nombre de la función)
+if (!mysqli_stmt_bind_param($stmt, str_repeat('s', count($required_columns)), 
+    $email, $password_crypted, $name, $sName)) {
+    die("Error al bindear parámetros: " . mysqli_stmt_error($stmt));
+}
+
+// 7. Ejecutar
+if (mysqli_stmt_execute($stmt)) {
+    if (mysqli_stmt_affected_rows($stmt) > 0) {
+        header("Location: register_confirm.php?email_reg=" . urlencode($email));
+        exit();
+    } else {
+        die("No se insertaron filas. ¿La tabla está vacía?");
+    }
+} else {
+    die("Error al ejecutar: " . mysqli_stmt_error($stmt));
+}
+
+
+// 7. Cerrar recursos
+mysqli_stmt_close($stmt);
 mysqli_close($conn);
-
-header("location:register_confirm.php?email_reg=$email");
-
-exit(); 
-
 ?>

@@ -161,7 +161,7 @@ body{
 }
 
 .bttn_iniciar:active {
-    transform: translateX(-50%) scale(0.98);
+    transform: translateY(1px); /* Efecto de "presionado" */
 }
 
 .bttn_crear{

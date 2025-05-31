@@ -29,7 +29,7 @@
                 <button type="submit" class="bttn_iniciar">Iniciar Sesión</button>
             </div>
         </form>
-        <form action="">
+        <form action="<?php echo BASE_URL; ?>pages/register_module/register_page.php">
             <div class="boxes">
                 <button type="submit" class="bttn_crear">Crear cuenta</button>
             </div>
