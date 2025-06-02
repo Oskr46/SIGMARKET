@@ -37,6 +37,7 @@ include('../../components/header_footer.php');
     <title>Panel de Usuario</title>
     <link rel= "stylesheet" href= "<?php echo BASE_URL;?>/styles/global.css"/>
     <link rel= "stylesheet" href= "<?php echo BASE_URL;?>/styles/panels.css"/>
+    <link rel= "icon" href= "<?php echo BASE_URL;?>/res/img/favicon_white.png"/>
 </head>
 <body>
     <header class="header">

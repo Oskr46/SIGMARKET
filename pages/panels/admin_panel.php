@@ -39,6 +39,7 @@ include('../../components/header_footer.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administrador</title>
     <link rel= "stylesheet" href= "<?php echo BASE_URL;?>/styles/global.css"/>
+    <link rel= "icon" href= "<?php echo BASE_URL;?>/res/img/favicon_white.png"/>
     <link rel= "stylesheet" href= "<?php echo BASE_URL;?>/styles/panels.css"/>
 </head>
 <body>
