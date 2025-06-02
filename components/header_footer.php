@@ -11,15 +11,27 @@ function show_header(){
             <a class="item" href="<?php echo BASE_URL; ?>brands/">Marcas</a>
             <button class="search"></button>
             <input class="search_input" placeholder="Busca un Producto">
-            <?php if(!isset($_SESSION['email'])): ?>
+            
+            <?php if(!isset($_SESSION['email']) && !isset($_SESSION['name']) && !isset($_SESSION['sName']) && !isset($_SESSION['tipo'])): ?>
                 <a class="sign_in" href="<?php echo BASE_URL; ?>pages/register_module/register_page.php">Registrate Ahora</a>
                 <a class="sign_up" href="<?php echo BASE_URL; ?>pages/login_module/login_page.php">Iniciar Sesion</a>
             <?php else: ?>
                 <a class="cart" href="<?php echo BASE_URL; ?>cart/">
                     <img src="<?php echo BASE_URL; ?>res/img/cart_icon.png" alt="Carrito de compras"/>
                 </a>
-                <a class="user_settings" href="<?php echo BASE_URL; ?>pages/login_module/close_session.php">
-                    <img src="<?php echo BASE_URL; ?>res/img/user_icon.png" alt="Perfil de usuario"/>
+                <a class="user_settings" href="<?php echo BASE_URL; ?>pages/panels/user_panel.php">
+                            <img class="user_icon" src="<?php echo BASE_URL; ?>res/img/user_icon.png" alt="Perfil de usuario"/>
+                            <span>
+                            <?php echo ("<br>".$_SESSION['name'].'<br>'); ?>
+                    <?php switch($_SESSION['tipo']){
+                        case 0: echo ('Usuario: Usuario'); break;
+                        
+                        case 1: echo ('Usuario: Administrador'); break;
+                    } ?>
+                </span>
+                </a>
+                <a class="log_out" href="<?php echo BASE_URL; ?>pages/login_module/close_session.php">
+                    <img src="<?php echo BASE_URL; ?>res/img/log_out.png" alt="Cerrar Sesión" width="25"/>
                 </a>
             <?php endif; ?>
         </div>

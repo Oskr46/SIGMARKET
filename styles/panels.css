@@ -1,0 +1,331 @@
+body {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Cuerpo-Satoshi", sans-serif;
+}
+
+.header {
+    grid-row: 1;
+}
+
+.breadcrumb {
+    margin-top: 60px;
+    grid-row: 2;
+    padding: 15px 30px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+}
+
+.account-container {
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 30px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.account-sidebar {
+    margin-top: 75px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 8px;
+    height: fit-content;
+    width: 20px;
+    position: sticky;
+    top: 75px;
+}
+
+.account-content {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.account-content h1 {
+    margin-top: 0;
+    font-size: 28px;
+    color: #333;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.account-section {
+    margin-bottom: 30px;
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.account-section h2 {
+    font-size: 20px;
+    color: #444;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.info-row {
+    display: flex;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.info-row:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.info-label {
+    flex: 1;
+    font-weight: bold;
+    color: #555;
+}
+
+.info-value {
+    flex: 2;
+    color: #333;
+}
+
+.module{
+    text-decoration: none;
+    color: black;
+    transition: all 250ms ease;
+}
+
+.module:hover{
+    color: #333;
+}
+
+.footer {
+    grid-row: 4;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .account-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .account-sidebar {
+        position: static;
+        margin-bottom: 20px;
+    }
+    
+    .account-content {
+        padding: 0;
+    }
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Cuerpo-Satoshi", sans-serif;
+    background-color: #ffffff;
+}
+
+.header {
+    grid-row: 1;
+}
+
+.breadcrumb {
+    grid-row: 2;
+    padding: 15px 30px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 14px;
+    color: #000000;
+}
+
+.account-container {
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 30px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.account-sidebar {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    height: fit-content;
+    width: 200px;
+    position: sticky;
+    top: 20px;
+}
+
+.account-sidebar h3 {
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #3d5166;
+    font-size: 18px;
+    color: black;
+}
+
+.account-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+}
+
+.account-sidebar li {
+    padding: 12px 15px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #000000;
+    transition: all 0.3s ease;
+}
+
+.account-sidebar li:hover {
+    background-color: #bbbbbb;
+    color: #000000;
+}
+
+.account-sidebar li.active {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+}
+
+.account-content {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.account-content h1 {
+    margin-top: 0;
+    font-size: 28px;
+    color: #000000;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.welcome-section {
+    background-color: #e8f4fc;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border-left: 4px solid #3498db;
+}
+
+.welcome-section p {
+    margin: 0;
+    font-size: 16px;
+    color: #2c3e50;
+}
+
+.welcome-section strong {
+    color: #3498db;
+}
+
+.admin-actions {
+    margin-bottom: 30px;
+}
+
+.admin-actions h2 {
+    font-size: 20px;
+    color: #000000;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.action-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.action-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 15px;
+    background-color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #000000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+}
+
+.action-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-color: #3498db;
+}
+
+.action-button .icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.logout-section {
+    margin-top: 40px;
+    text-align: right;
+}
+
+.close_session {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #e74c3c;
+    text-decoration: none;
+    border-radius: 20px;
+    border: 1px solid #e74c3c;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.close_session:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .account-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .account-sidebar {
+        position: static;
+        margin-bottom: 20px;
+    }
+    
+    .action-buttons, .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .action-buttons, .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}

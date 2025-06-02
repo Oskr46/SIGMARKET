@@ -144,11 +144,37 @@
 .header_content .user_settings{
     justify-content: center;
     align-items: center;
-    margin: 15px 50px 0px 10px;
+    margin: -20px 0px 0px 40px;
+    text-decoration: none;
+    color: black;
+    font-size: 12px;
+    text-align: left;
+    transition: color 250ms ease;
 }
+
+.header_content .user_settings:hover{
+    color: rgb(58, 58, 58);
+}
+
+.header_content .user_settings .user_icon{
+    margin: 35px 0px -30px -30px;
+}
+
+.header_content .user_settings span{
+    margin: 0px 20px 0px -20px;
+}
+
 
 .header_content .cart{
     justify-content: center;
     align-items: center;
-    margin:15px 10px 0px -35px;
+    margin: 15px 10px 0px -35px;
+}
+
+.header_content .log_out{
+    justify-content: center;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    margin: 15px 10px 0px 10px;
 }
