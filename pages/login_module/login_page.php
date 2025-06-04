@@ -25,7 +25,7 @@
                 <input type="text" class="user_box" name="user" placeholder="Email" required>
                 <div class="cuadro"></div>
                 <input type="text" class="password_box" name="password" placeholder="Contraseña" required>
-                <a href="" class="forgot_password">¿Olvidaste tu contraseña?</a>
+                <a class="forgot_password">¿Olvidaste tu contraseña?</a>
                 <button type="submit" class="bttn_iniciar">Iniciar Sesión</button>
             </div>
         </form>
