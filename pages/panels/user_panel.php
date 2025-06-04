@@ -53,8 +53,8 @@ include('../../components/header_footer.php');
         <aside class="account-sidebar">
             <h3>Informacion de perfil</h3>
             <ul>
-                <li><a class="module" href="">Direccion</a><br></li>
-                <li><a class="module" href="">Metodos de pago</a></li>
+                <li><a class="module" href="../soon.php">Direccion</a><br></li>
+                <li><a class="module" href="../soon.php">Metodos de pago</a></li>
                 <?php if($tipo_usuario == 1){?>
                     <li><a class="module" href="admin_panel.php">Panel de Administrador</a></li>
                 <?php };?>
