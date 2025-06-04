@@ -1,4 +1,5 @@
-<?php include('../../components/header_footer.php');
+<?php 
+include('../../components/header_footer.php');
 include('../../components/conexion.php');
 session_start();
 $conn = connectDB();
@@ -8,21 +9,32 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Obtener parámetros de filtro
+// Obtener parámetros de filtro y búsqueda
 $categoria = $_GET['category'] ?? null;
 $color = $_GET['color'] ?? null;
+$searchTerm = $_GET['search'] ?? null;
 
-// Construir consulta SQL con filtros
-$q = "SELECT * FROM products WHERE 1=1";
+// Construir consulta SQL con filtros - MODIFICADO PARA INCLUIR IMÁGENES Y BÚSQUEDA
+$q = "SELECT p.*, i.urlImage 
+      FROM products p
+      LEFT JOIN imageproduct i ON p.idProduct = i.idProduct
+      WHERE 1=1";
 $params = [];
 
+if ($searchTerm) {
+    $q .= " AND (p.nameProduct LIKE ? OR p.descriptionProduct LIKE ?)";
+    $searchParam = "%" . $searchTerm . "%";
+    $params[] = $searchParam;
+    $params[] = $searchParam;
+}
+
 if ($categoria && $categoria != 'todas') {
-    $q .= " AND categoryProduct = ?";
+    $q .= " AND p.categoryProduct = ?";
     $params[] = $categoria;
 }
 
 if ($color && $color != 'todos') {
-    $q .= " AND colorProduct = ?";
+    $q .= " AND p.colorProduct = ?";
     $params[] = $color;
 }
 
@@ -70,8 +82,20 @@ while ($row = mysqli_fetch_assoc($colores_query)) {
     <main class="product-page">
         <aside class="filters">
             <form method="GET" action="">
+                <?php if($searchTerm): ?>
+                    <input type="hidden" name="search" value="<?php echo htmlspecialchars($searchTerm); ?>">
+                <?php endif; ?>
+                
                 <section class="filter-section">
                     <h2>Filtros</h2>
+                    
+                    <!-- Mostrar término de búsqueda si existe -->
+                    <?php if($searchTerm): ?>
+                        <div style="margin-bottom: 15px;">
+                            <h3>Búsqueda: "<?php echo htmlspecialchars($searchTerm); ?>"</h3>
+                            <a href="?" style="font-size: 0.8rem; color: #6c757d;">Limpiar búsqueda</a>
+                        </div>
+                    <?php endif; ?>
                     
                     <!-- Filtro de categorías -->
                     <h3>Categorías</h3>
@@ -113,7 +137,7 @@ while ($row = mysqli_fetch_assoc($colores_query)) {
                 </section>
 
                 <button type="submit" class="apply-filters">Aplicar Filtros</button>
-                <a href="?" class="apply-filters" style="background: #6c757d; font-size: 0.8rem; display: inline-block; text-decoration: none; margin-left: 2px;">Limpiar</a>
+                <a href="?<?= $searchTerm ? 'search='.urlencode($searchTerm) : '' ?>" class="apply-filters" style="background: #6c757d; font-size: 0.8rem; display: inline-block; text-decoration: none; margin-left: 2px;">Limpiar</a>
             </form>
         </aside>
 
@@ -121,8 +145,8 @@ while ($row = mysqli_fetch_assoc($colores_query)) {
             <?php if (mysqli_num_rows($consulta) > 0): ?>
                 <?php while($fila = mysqli_fetch_assoc($consulta)): ?>
                     <div class="product-card">
-                        <?php if (!empty($fila['idProduct'])): ?>
-                            <img src="<?php echo BASE_URL;?>res/img/products/<?= htmlspecialchars($fila['idProduct']) ?>" 
+                        <?php if (!empty($fila['urlImage'])): ?>
+                            <img src="<?php echo BASE_URL . htmlspecialchars($fila['urlImage']) ?>" 
                                  alt="<?= htmlspecialchars($fila['nameProduct']) ?>" 
                                  class="product-image">
                         <?php else: ?>
@@ -152,7 +176,7 @@ while ($row = mysqli_fetch_assoc($colores_query)) {
                 <?php endwhile; ?>
             <?php else: ?>
                 <p style="grid-column: 1 / -1; text-align: center; padding: 20px;">
-                    No se encontraron productos con los filtros seleccionados.
+                    No se encontraron productos <?= $searchTerm ? 'para "'.htmlspecialchars($searchTerm).'"' : 'con los filtros seleccionados' ?>.
                 </p>
             <?php endif; ?>
         </section>

@@ -38,6 +38,7 @@ include('../../components/header_footer.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administrador</title>
+    <link rel= "icon" href= "<?php echo BASE_URL;?>/res/img/favicon_white.png"/>
     <link rel= "stylesheet" href= "<?php echo BASE_URL;?>/styles/global.css"/>
     <link rel= "stylesheet" href= "<?php echo BASE_URL;?>/styles/panels.css"/>
 </head>
@@ -55,10 +56,8 @@ include('../../components/header_footer.php');
             <h3>Menú de Administración</h3>
             <ul>
                 <li class="active">Dashboard</li>
-                <li>Productos</li>
-                <li>Usuarios</li>
-                <li>Pedidos</li>
-                <li>Configuración</li>
+                <li><a class="module" href="../products_module/prod_panel.php">Productos</a></li>
+                <li><a class="module" href="../users_module/users_panel.php">Usuarios</a></li>
             </ul>
         </aside>
 
@@ -72,17 +71,13 @@ include('../../components/header_footer.php');
             <section class="admin-actions">
                 <h2>Acciones Rápidas</h2>
                 <div class="action-buttons">
-                    <a class="action-button" href="">
-                        <i class="icon">➕</i>
+                    <a class="action-button" href="../products_module/add_product.php">
+                        <i class="icon">📦➕</i>
                         <span>Agregar Producto</span>
                     </a>
-                    <a class="action-button" href="">
-                        <i class="icon">📦</i>
-                        <span>Administrar Productos</span>
-                    </a>
-                    <a class="action-button" href="">
-                        <i class="icon">👥</i>
-                        <span>Administrar Usuarios</span>
+                    <a class="action-button" href="../users_module/users_panel.php">
+                        <i class="icon">👥➕</i>
+                        <span>Ver Usuarios</span>
                     </a>
                 </div>
             </section>

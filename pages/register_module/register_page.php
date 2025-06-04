@@ -39,10 +39,6 @@ include('../../components/conexion.php');
                         <input name= "sName" type="text" placeholder="Coloca tu Apellido" required/>
                     </div>
                     <div class="register_container_data">
-                        <label for="phone">Numero Telefónico</label>
-                        <input name= "phone" type="text" placeholder="Coloca tu número telefónico" required/>
-                    </div>
-                    <div class="register_container_data">
                         <label for="password">Contraseña</label>
                         <input name= "password" type="text" placeholder="Crea una Contraseña" required/>
                     </div>

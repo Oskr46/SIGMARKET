@@ -7,10 +7,15 @@ function show_header(){
                 <a href="<?php echo BASE_URL; ?>"><img src="<?php echo BASE_URL; ?>res/img/logo_smkt.png" alt="Logo SIGMARKET"></a>
             </div>
             <a class="item" href="<?php echo BASE_URL; ?>pages/products_module/product_page">Productos</a>
-            <a class="item" href="<?php echo BASE_URL; ?>sale/">En venta</a>
-            <a class="item" href="<?php echo BASE_URL; ?>brands/">Marcas</a>
-            <button class="search"></button>
-            <input class="search_input" placeholder="Busca un Producto">
+            <a class="item" href="<?php echo BASE_URL; ?>pages/soon.php">En venta</a>
+            <a class="item" href="<?php echo BASE_URL; ?>pages/soon.php">Marcas</a>
+            
+            <div class="search-container">
+                <form method="GET" action="<?php echo BASE_URL; ?>pages/products_module/product_page/" class="search-form">
+                    <button type="submit" class="search"></button>
+                    <input type="text" class="search_input" name="search" placeholder="Busca un Producto">
+                </form>
+            </div>
             
             <?php if(!isset($_SESSION['email']) && !isset($_SESSION['name']) && !isset($_SESSION['sName']) && !isset($_SESSION['tipo'])): ?>
                 <a class="sign_in" href="<?php echo BASE_URL; ?>pages/register_module/register_page.php">Registrate Ahora</a>

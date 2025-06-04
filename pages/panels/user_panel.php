@@ -34,7 +34,8 @@ include('../../components/header_footer.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Usuario</title>
+    <title>Centro de Cuentas</title>
+    <link rel= "icon" href= "<?php echo BASE_URL;?>/res/img/favicon_white.png"/>
     <link rel= "stylesheet" href= "<?php echo BASE_URL;?>/styles/global.css"/>
     <link rel= "stylesheet" href= "<?php echo BASE_URL;?>/styles/panels.css"/>
 </head>
@@ -44,7 +45,7 @@ include('../../components/header_footer.php');
     </header>
     
     <div class="breadcrumb">
-        <span>Inicio > centro de cuentas</span>
+        <span>Inicio > Centro de Cuentas</span>
     </div>
 
     <div class="account-container">
@@ -66,16 +67,12 @@ include('../../components/header_footer.php');
                 <h2>Informacion personal</h2>
                 <div class="account-info">
                     <div class="info-row">
-                        <span class="info-label">Username</span>
+                        <span class="info-label">Nombre de Usuario</span>
                         <span class="info-value"><?php echo $nombre ." ". $apellido; ?></span>
                     </div>
                     <div class="info-row">
                         <span class="info-label">Direccion Email</span>
                         <span class="info-value"><?php echo $email ?></span>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-label">Numero de teléfono</span>
-                        <span class="info-value">+1234567890</span>
                     </div>
                 </div>
             </section>
