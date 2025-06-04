@@ -3,8 +3,8 @@
 function connectDB(){
     $servername = "localhost";
     $database = "sigmarket";
-    $username = "sigmarket";
-    $password = "Sigmaboy123*!";
+    $username = "admin";
+    $password = "1";
     // Creando la conexión
     $conn = mysqli_connect($servername, $username, $password, $database) 
         or die("Ha sucedido un error inexperado en la conexion de la base de datos");
