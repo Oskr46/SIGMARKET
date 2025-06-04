@@ -4,18 +4,14 @@ session_start();
 
 include ('../../components/conexion.php');
 
-// Verificar si las variables de sesión existen
-if (!isset($_SESSION['name']) || !isset($_SESSION['sName']) || !isset($_SESSION['tipo'])  || !isset($_SESSION['email'])) {
+// Verificar si las variables de sesión básicas existen
+if (!isset($_SESSION['tipo']) || !isset($_SESSION['email'])) {
     header("location: index.php");
+    exit();
 }
 
-$tipo_usuario = $_SESSION['tipo'];   
-$email = $_SESSION['email'];
-$nombre = $_SESSION['name'];
-$apellido = $_SESSION['sName'];
-
 $conn = connectDB();
-//Estableciendo caracteres UTF8 para BD, importante para acentos y eñes en MySQL                            
+// Estableciendo caracteres UTF8 para BD, importante para acentos y eñes en MySQL                            
 mysqli_set_charset($conn, "utf8");
 
 // Check connection
@@ -23,11 +19,32 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+// Obtener datos del usuario desde la base de datos
+$email = $_SESSION['email'];
+$query = "SELECT nameUser, sNameUser FROM user WHERE emailUser = ?";
+$stmt = mysqli_prepare($conn, $query);
+mysqli_stmt_bind_param($stmt, "s", $email);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+$user_data = mysqli_fetch_assoc($result);
+
+if ($user_data) {
+    $nombre = $user_data['nameUser'];
+    $apellido = $user_data['sNameUser'];
+    
+    // Actualizar variables de sesión por si acaso
+    $_SESSION['name'] = $nombre;
+    $_SESSION['sName'] = $apellido;
+} else {
+    // Si no encuentra el usuario, redirigir
+    header("location: index.php");
+    exit();
+}
+
+$tipo_usuario = $_SESSION['tipo'];
+
 include('../../components/header_footer.php');
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -63,17 +80,23 @@ include('../../components/header_footer.php');
 
         <main class="account-content">
             <h1>CENTRO DE CUENTAS</h1>
-            
+            <?php if (isset($_SESSION['success'])): ?>
+                <div class="success-message"><?php echo $_SESSION['success']; unset($_SESSION['success']); ?></div>
+            <?php endif; ?>
             <section class="account-section">
                 <h2>Informacion personal</h2>
                 <div class="account-info">
                     <div class="info-row">
                         <span class="info-label">Nombre de Usuario</span>
-                        <span class="info-value"><?php echo $nombre ." ". $apellido; ?></span>
+                        <span class="info-value"><?php echo htmlspecialchars($nombre) . " " . htmlspecialchars($apellido); ?></span>
                     </div>
                     <div class="info-row">
                         <span class="info-label">Direccion Email</span>
-                        <span class="info-value"><?php echo $email ?></span>
+                        <span class="info-value"><?php echo htmlspecialchars($email); ?></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">¿Quieres Modificar tus datos?</span>
+                        <a class="module" href="../users_module/modify_data.php"><span class="info-value">Click Aquí!</span></a>
                     </div>
                 </div>
             </section>
@@ -87,7 +110,7 @@ include('../../components/header_footer.php');
                     </div>
                     <div class="info-row">
                         <span class="info-label">Ultimo inicio de Sesion</span>
-                        <span class="info-value"><?php echo ($_SESSION["ultimo_acceso"]);?></span>
+                        <span class="info-value"><?php echo htmlspecialchars($_SESSION["ultimo_acceso"]); ?></span>
                     </div>
                 </div>
             </section>
