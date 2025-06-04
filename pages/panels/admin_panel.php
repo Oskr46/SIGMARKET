@@ -40,6 +40,7 @@ include('../../components/header_footer.php');
     <title>Panel de Administrador</title>
     <link rel= "icon" href= "<?php echo BASE_URL;?>/res/img/favicon_white.png"/>
     <link rel= "stylesheet" href= "<?php echo BASE_URL;?>/styles/global.css"/>
+    <link rel= "icon" href= "<?php echo BASE_URL;?>/res/img/favicon_white.png"/>
     <link rel= "stylesheet" href= "<?php echo BASE_URL;?>/styles/panels.css"/>
 </head>
 <body>
