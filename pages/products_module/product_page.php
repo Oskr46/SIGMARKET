@@ -115,6 +115,7 @@ while ($row = mysqli_fetch_assoc($colores_query)) {
                     <?php endforeach; ?>
                 </section>
 
+</form>
                 <!-- Filtro de colores -->
                 <section class="filter-section">
                     <h3>Colores</h3>
