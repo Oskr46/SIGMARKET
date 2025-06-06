@@ -21,7 +21,7 @@ function show_header(){
                 <a class="sign_in" href="<?php echo BASE_URL; ?>pages/register_module/register_page.php">Registrate Ahora</a>
                 <a class="sign_up" href="<?php echo BASE_URL; ?>pages/login_module/login_page.php">Iniciar Sesion</a>
             <?php else: ?>
-                <a class="cart" href="<?php echo BASE_URL; ?>cart/ver_carrito.php">
+                <a class="cart" href="<?php echo BASE_URL; ?>pages/cart/ver_carrito.php">
                     <img src="<?php echo BASE_URL; ?>res/img/cart_icon.png" alt="Carrito de compras"/>
                 </a>
                 <a class="user_settings" href="<?php echo BASE_URL; ?>pages/panels/user_panel.php">

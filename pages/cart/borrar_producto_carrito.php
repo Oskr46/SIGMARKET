@@ -1,21 +1,21 @@
 <?php
 session_start();
-include('../components/conexion.php');
+include('../../components/conexion.php');
 
 // Verificar si el usuario está logueado
-if (!isset($_SESSION['idUser'])) {
-    header("Location: ../pages/login_module/login_page.php");
+if (!isset($_SESSION['id'])) {
+    header("Location: ../../pages/login_module/login_page.php");
     exit();
 }
 
 // Verificar si se recibió el ID del producto del carrito a eliminar
-if (isset($_POST['idCart_product'])) {
-    $idCartProduct = $_POST['idCart_product'];
+if (isset($_POST['idCart'])) {
+    $idCartProduct = $_POST['idCart'];
     $conn = connectDB();
     mysqli_set_charset($conn, "utf8");
 
     // Preparar la consulta para eliminar el producto del carrito
-    $sql = "DELETE FROM cart_product WHERE idCart_product = ?";
+    $sql = "DELETE FROM cart WHERE idCart = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $idCartProduct);
     

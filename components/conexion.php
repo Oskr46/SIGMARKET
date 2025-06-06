@@ -3,7 +3,7 @@
 function connectDB(){
     $servername = "localhost";
     $database = "sigmarket";
-    $username = "sigmarket";    
+    $username = "admin";    
     $password = "1";
     // Creando la conexión
     $conn = mysqli_connect($servername, $username, $password, $database) 

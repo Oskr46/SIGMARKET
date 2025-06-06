@@ -42,6 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //un campo en tu DB llamado NOMBRE, así accederías
             //echo $fila['Id'];
             
+            $idUser = $fila['idUser'];
             $nombre = $fila['nameUser'];
             $apellido = $fila['sNameUser'];
             $tipo_usuario=$fila['adminBool'];
@@ -50,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           mysqli_free_result( $check_login );
             // Login exitoso
             date_default_timezone_set('America/Caracas');
+            $_SESSION['id'] = $idUser;
             $_SESSION['tipo'] = $tipo_usuario;   
             $_SESSION['email'] = $email;
             $_SESSION['name'] = $nombre;

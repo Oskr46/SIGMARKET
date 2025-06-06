@@ -38,6 +38,9 @@ if ($color && $color != 'todos') {
     $params[] = $color;
 }
 
+// Agrupar por ID de producto para evitar duplicados
+$q .= " GROUP BY p.idProduct";
+
 // Preparar y ejecutar consulta
 $stmt = mysqli_prepare($conn, $q);
 
@@ -115,23 +118,22 @@ while ($row = mysqli_fetch_assoc($colores_query)) {
                     <?php endforeach; ?>
                 </section>
 
-</form>
                 <!-- Filtro de colores -->
                 <section class="filter-section">
                     <h3>Colores</h3>
                     <div class="filter-option">
                         <input type="radio" name="color" id="color_todos" value="todos" 
-                               <?= (!isset($_GET['color']) || $_GET['color'] == 'todos') ? 'checked' : '' ?>>
+                               <?= (!$color || $color == 'todos') ? 'checked' : '' ?>>
                         <label for="color_todos">Todos los colores</label>
                     </div>
                     
-                    <?php foreach ($colores as $color): ?>
+                    <?php foreach ($colores as $col): ?>
                         <div class="filter-option" style="display: inline-block; margin-right: 10px;">
-                            <input type="radio" name="color" id="color_<?= htmlspecialchars($color) ?>" 
-                                   value="<?= htmlspecialchars($color) ?>" 
-                                   <?= (isset($_GET['color']) && $_GET['color'] === $color) ? 'checked' : '' ?>>
-                            <label for="color_<?= htmlspecialchars($color) ?>" style="cursor: pointer;">
-                                <span style="display: inline-block; width: 20px; height: 20px; background: <?= htmlspecialchars($color) ?>; border-radius: 50%; border: 1px solid #ddd;"></span>
+                            <input type="radio" name="color" id="color_<?= htmlspecialchars($col) ?>" 
+                                   value="<?= htmlspecialchars($col) ?>" 
+                                   <?= ($color === $col) ? 'checked' : '' ?>>
+                            <label for="color_<?= htmlspecialchars($col) ?>" style="cursor: pointer;">
+                                <span style="display: inline-block; width: 20px; height: 20px; background: <?= htmlspecialchars($col) ?>; border-radius: 50%; border: 1px solid #ddd;"></span>
                             </label>
                         </div>
                     <?php endforeach; ?>
@@ -145,35 +147,37 @@ while ($row = mysqli_fetch_assoc($colores_query)) {
         <section class="product-grid">
             <?php if (mysqli_num_rows($consulta) > 0): ?>
                 <?php while($fila = mysqli_fetch_assoc($consulta)): ?>
-                    <div class="product-card">
-                        <?php if (!empty($fila['urlImage'])): ?>
-                            <img src="<?php echo BASE_URL . htmlspecialchars($fila['urlImage']) ?>" 
-                                 alt="<?= htmlspecialchars($fila['nameProduct']) ?>" 
-                                 class="product-image">
-                        <?php else: ?>
-                            <div class="product-image" style="background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-                                <span>Sin imagen</span>
-                            </div>
-                        <?php endif; ?>
-                        
-                        <h3 class="product-title"><?= htmlspecialchars($fila['nameProduct']) ?></h3>
-                        <p class="product-price">$<?= number_format($fila['priceProduct'], 2) ?></p>
-                        <p class="product-stock">Disponibles: <?= htmlspecialchars($fila['quantityProduct']) ?></p>
-                        <p class="product-category"><?= htmlspecialchars($fila['categoryProduct']) ?></p>
-                        
-                        <?php if (!empty($fila['descriptionProduct'])): ?>
-                            <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">
-                                <?= htmlspecialchars($fila['descriptionProduct']) ?>
-                            </p>
-                        <?php endif; ?>
-                        
-                        <?php if (!empty($fila['colorProduct'])): ?>
-                            <div style="margin-top: 10px;">
-                                <span style="display: inline-block; width: 15px; height: 15px; background: <?= htmlspecialchars($fila['colorProduct']) ?>; border-radius: 50%; border: 1px solid #ddd;"></span>
-                                <span style="margin-left: 5px; font-size: 0.8rem;"><?= htmlspecialchars($fila['colorProduct']) ?></span>
-                            </div>
-                        <?php endif; ?>
-                    </div>
+                    <a href="<?php echo BASE_URL; ?>pages/products_module/detalle_prod?id=<?= $fila['idProduct'] ?>" class="product-card-link">
+                        <div class="product-card">
+                            <?php if (!empty($fila['urlImage'])): ?>
+                                <img src="<?php echo BASE_URL . htmlspecialchars($fila['urlImage']) ?>" 
+                                     alt="<?= htmlspecialchars($fila['nameProduct']) ?>" 
+                                     class="product-image">
+                            <?php else: ?>
+                                <div class="product-image" style="background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                                    <span>Sin imagen</span>
+                                </div>
+                            <?php endif; ?>
+                            
+                            <h3 class="product-title"><?= htmlspecialchars($fila['nameProduct']) ?></h3>
+                            <p class="product-price">$<?= number_format($fila['priceProduct'], 2) ?></p>
+                            <p class="product-stock">Disponibles: <?= htmlspecialchars($fila['quantityProduct']) ?></p>
+                            <p class="product-category"><?= htmlspecialchars($fila['categoryProduct']) ?></p>
+                            
+                            <?php if (!empty($fila['descriptionProduct'])): ?>
+                                <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">
+                                    <?= htmlspecialchars(substr($fila['descriptionProduct'], 0, 100)) ?><?= strlen($fila['descriptionProduct']) > 100 ? '...' : '' ?>
+                                </p>
+                            <?php endif; ?>
+                            
+                            <?php if (!empty($fila['colorProduct'])): ?>
+                                <div style="margin-top: 10px;">
+                                    <span style="display: inline-block; width: 15px; height: 15px; background: <?= htmlspecialchars($fila['colorProduct']) ?>; border-radius: 50%; border: 1px solid #ddd;"></span>
+                                    <span style="margin-left: 5px; font-size: 0.8rem;"><?= htmlspecialchars($fila['colorProduct']) ?></span>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </a>
                 <?php endwhile; ?>
             <?php else: ?>
                 <p style="grid-column: 1 / -1; text-align: center; padding: 20px;">

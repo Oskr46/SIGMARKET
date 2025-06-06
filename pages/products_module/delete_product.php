@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             }
 
             // Luego eliminar el archivo físico
-            $image_path = '../../' . $producto['urlImage'];
+           $image_path = '../../' . $producto['urlImage'];
             if (file_exists($image_path)) {
                 unlink($image_path);
             }
