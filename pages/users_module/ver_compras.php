@@ -133,7 +133,7 @@ disconnectDB($conn);
                     </div>
                 <?php endforeach; ?>
                 
-                <a href="mis_compras.php" class="volver-compras">← Volver a todas mis compras</a>
+                <a href="ver_compras.php" class="volver-compras">← Volver a todas mis compras</a>
             <?php endif; ?>
         </div>
     </div>

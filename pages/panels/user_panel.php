@@ -72,7 +72,7 @@ include('../../components/header_footer.php');
             <ul>
                 <li><a class="module" href="../soon.php">Direccion</a><br></li>
                 <li><a class="module" href="../soon.php">Metodos de pago</a></li>
-                <li><a class="module" href="../users_module/ver_compras.php">Ver Historial de Compras</a></li>
+                <li><a class="module" href="../users_module/ver_compras.php">Ver Mi Historial de Compras</a></li>
                 <?php if($tipo_usuario == 1){?>
                     <li><a class="module" href="admin_panel.php">Panel de Administrador</a></li>
                 <?php };?>

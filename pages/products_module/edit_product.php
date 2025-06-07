@@ -165,6 +165,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
+$categories = [];
+$categoryQuery = "SELECT idCategory, nameCategory FROM category ORDER BY nameCategory";
+$categoryResult = mysqli_query($conn, $categoryQuery);
+
+if ($categoryResult) {
+    while ($row = mysqli_fetch_assoc($categoryResult)) {
+        $categories[$row['idCategory']] = $row['nameCategory'];
+    }
+}
+
 include('../../components/header_footer.php');
 ?>
 
@@ -194,6 +204,8 @@ include('../../components/header_footer.php');
                 <li><a class="module" href="../panels/admin_panel.php">Dashboard</a></li>
                 <li><a class="module" href="prod_panel.php">Productos</a></li>
                 <li><a class="module" href="../users_module/users_panel.php">Usuarios</a></li>
+                <li><a class="module" href="../category/category_panel.php">Categorías</a></li>
+                <li><a class="module" href="../panels/compras_panel.php">Ver Historial de Compras</a></li>
             </ul>
         </aside>
 
@@ -249,9 +261,13 @@ include('../../components/header_footer.php');
                     </div>
                     
                     <div class="form-group">
-                        <label for="categoryProduct">Categoría</label>
-                        <input type="text" id="categoryProduct" name="categoryProduct" 
-                               value="<?php echo htmlspecialchars($producto['categoryProduct']); ?>">
+                        <label for="categoryProduct" class="form-label required-field">Categoría</label>
+                        <select id="categoryProduct" name="categoryProduct" class="form-control" required>
+                            <option value="">Seleccione una categoría</option>
+                            <?php foreach ($categories as $id => $name): ?>
+                                <option value="<?php echo $id; ?>" <?php echo ($producto['categoryProduct'] == $id) ? 'selected': ''?>><?php echo htmlspecialchars($name);?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                 </div>
                 

@@ -120,6 +120,8 @@ include('../../components/header_footer.php');
                 <li><a class="module" href="../panels/admin_panel.php">Dashboard</a></li>
                 <li><a class="module" href="../products_module/prod_panel.php">Productos</a></li>
                 <li><a class="module" href="../panels/user_panel.php">Usuarios</a></li>
+                <li><a class="module" href="../category/category_panel.php">Categorías</a></li>
+                <li><a class="module" href="compras_panel.php">Ver Historial de Compras</a></li>
             </ul>
         </aside>
 

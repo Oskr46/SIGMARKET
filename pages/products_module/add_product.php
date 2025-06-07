@@ -15,6 +15,19 @@ $apellido = $_SESSION['sName'];
 
 include('../../components/header_footer.php');
 include('../../components/conexion.php');
+
+// Obtener categorías de la base de datos
+$conn = connectDB();
+$categories = [];
+$categoryQuery = "SELECT idCategory, nameCategory FROM category ORDER BY nameCategory";
+$categoryResult = mysqli_query($conn, $categoryQuery);
+
+if ($categoryResult) {
+    while ($row = mysqli_fetch_assoc($categoryResult)) {
+        $categories[$row['idCategory']] = $row['nameCategory'];
+    }
+}
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +59,8 @@ include('../../components/conexion.php');
                 <li><a class="module" href="../panels/admin_panel.php">Dashboard</a></li>
                 <li class="active"><a class="module" href="prod_panel.php">Productos</a></li>
                 <li><a class="module" href="../users_module/users_panel.php">Usuarios</a></li>
+                <li><a class="module" href="../category/category_panel.php">Categorías</a></li>
+                <li><a class="module" href="../panels/compras_panel.php">Ver Historial de Compras</a></li>
             </ul>
         </aside>
 
@@ -86,8 +101,13 @@ include('../../components/conexion.php');
                     </div>
                     
                     <div class="form-group">
-                        <label for="categoryProduct" class="form-label">Categoría</label>
-                        <input type="text" id="categoryProduct" name="categoryProduct" class="form-control">
+                        <label for="categoryProduct" class="form-label required-field">Categoría</label>
+                        <select id="categoryProduct" name="categoryProduct" class="form-control" required>
+                            <option value="">Seleccione una categoría</option>
+                            <?php foreach ($categories as $id => $name): ?>
+                                <option value="<?php echo $id; ?>"><?php echo htmlspecialchars($name); ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                     
                     <div class="form-group">

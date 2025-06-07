@@ -134,7 +134,7 @@ disconnectDB($conn);
             <div class="acciones-finales">
                 <a href="<?php echo BASE_URL; ?>pages/products_module/product_page.php" class="btn-volver">Volver a Productos</a>
                 <?php if(!empty($cartItems)): ?>
-                    <a href="<?php echo BASE_URL; ?>pages/user_module/mis_compras.php" class="btn-volver">Ver mis compras</a>
+                    <a href="<?php echo BASE_URL; ?>pages/users_module/ver_compras.php" class="btn-volver">Ver mis compras</a>
                 <?php endif; ?>
             </div>
         </div>

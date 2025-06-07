@@ -24,7 +24,7 @@ if (!file_exists($upload_dir)) {
 // Validar y procesar el formulario
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Validar campos requeridos
-    $required_fields = ['nameProduct', 'descriptionProduct', 'priceProduct', 'imagen'];
+    $required_fields = ['nameProduct', 'descriptionProduct', 'priceProduct', 'imagen', 'categoryProduct'];
     foreach ($required_fields as $field) {
         if (empty($_POST[$field]) && $field != 'imagen') {
             die("Error: El campo $field es requerido");
@@ -78,6 +78,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
     
+    // Verificar que la categoría exista
+    $categoryId = intval($_POST['categoryProduct']);
+    $checkCategoryQuery = "SELECT idCategory FROM category WHERE idCategory = ?";
+    $checkCategoryStmt = mysqli_prepare($conn, $checkCategoryQuery);
+    mysqli_stmt_bind_param($checkCategoryStmt, "i", $categoryId);
+    mysqli_stmt_execute($checkCategoryStmt);
+    mysqli_stmt_store_result($checkCategoryStmt);
+    
+    if (mysqli_stmt_num_rows($checkCategoryStmt) == 0) {
+        die("Error: La categoría seleccionada no es válida");
+    }
+    
     // Mover el archivo subido
     if (move_uploaded_file($file_tmp, $destination)) {
         // Sanitizar datos del formulario
@@ -85,7 +97,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $priceProduct = floatval($_POST['priceProduct']);
         $colorProduct = isset($_POST['colorProduct']) ? mysqli_real_escape_string($conn, $_POST['colorProduct']) : '';
         $labelProduct = isset($_POST['labelProduct']) ? mysqli_real_escape_string($conn, $_POST['labelProduct']) : '';
-        $categoryProduct = isset($_POST['categoryProduct']) ? mysqli_real_escape_string($conn, $_POST['categoryProduct']) : '';
 
         // Iniciar transacción para asegurar la integridad de los datos
         mysqli_begin_transaction($conn);
@@ -100,13 +111,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 throw new Exception("Error en la preparación de la consulta: " . mysqli_error($conn));
             }
             
-            mysqli_stmt_bind_param($stmt, "ssdsss", 
+            // Cambiado a "ssdssi" (el último parámetro es entero para categoryProduct)
+            mysqli_stmt_bind_param($stmt, "ssdssi", 
                 $nameProduct, 
                 $descriptionProduct, 
                 $priceProduct, 
                 $colorProduct, 
-                $labelProduct, 
-                $categoryProduct);
+                $labelProduct,
+                $categoryId);
             
             if (!mysqli_stmt_execute($stmt)) {
                 throw new Exception("Error al guardar en la base de datos: " . mysqli_error($conn));

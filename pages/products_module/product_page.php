@@ -14,10 +14,11 @@ $categoria = $_GET['category'] ?? null;
 $color = $_GET['color'] ?? null;
 $searchTerm = $_GET['search'] ?? null;
 
-// Construir consulta SQL con filtros - MODIFICADO PARA INCLUIR IMÁGENES Y BÚSQUEDA
-$q = "SELECT p.*, i.urlImage 
+// Construir consulta SQL con filtros - MODIFICADO PARA INCLUIR NOMBRE DE CATEGORÍA
+$q = "SELECT p.*, i.urlImage, c.nameCategory 
       FROM products p
       LEFT JOIN imageproduct i ON p.idProduct = i.idProduct
+      LEFT JOIN category c ON p.categoryProduct = c.idCategory
       WHERE 1=1";
 $params = [];
 
@@ -29,7 +30,7 @@ if ($searchTerm) {
 }
 
 if ($categoria && $categoria != 'todas') {
-    $q .= " AND p.categoryProduct = ?";
+    $q .= " AND c.nameCategory = ?";
     $params[] = $categoria;
 }
 
@@ -52,11 +53,15 @@ if ($params) {
 mysqli_stmt_execute($stmt);
 $consulta = mysqli_stmt_get_result($stmt);
 
-// Obtener categorías únicas para el filtro
-$categorias_query = mysqli_query($conn, "SELECT DISTINCT categoryProduct FROM products");
+// Obtener categorías únicas para el filtro (con nombres)
+$categorias_query = mysqli_query($conn, 
+    "SELECT DISTINCT c.idCategory, c.nameCategory 
+     FROM products p
+     JOIN category c ON p.categoryProduct = c.idCategory
+     ORDER BY c.nameCategory");
 $categorias = [];
 while ($row = mysqli_fetch_assoc($categorias_query)) {
-    $categorias[] = $row['categoryProduct'];
+    $categorias[$row['idCategory']] = $row['nameCategory'];
 }
 
 // Obtener colores únicos para el filtro
@@ -108,12 +113,12 @@ while ($row = mysqli_fetch_assoc($colores_query)) {
                         <label for="cat_todas">Todas las categorías</label>
                     </div>
                     
-                    <?php foreach ($categorias as $cat): ?>
+                    <?php foreach ($categorias as $id => $nombre): ?>
                         <div class="filter-option">
-                            <input type="radio" name="category" id="cat_<?= htmlspecialchars($cat) ?>" 
-                                   value="<?= htmlspecialchars($cat) ?>" 
-                                   <?= ($categoria === $cat) ? 'checked' : '' ?>>
-                            <label for="cat_<?= htmlspecialchars($cat) ?>"><?= htmlspecialchars($cat) ?></label>
+                            <input type="radio" name="category" id="cat_<?= htmlspecialchars($id) ?>" 
+                                   value="<?= htmlspecialchars($nombre) ?>" 
+                                   <?= ($categoria === $nombre) ? 'checked' : '' ?>>
+                            <label for="cat_<?= htmlspecialchars($id) ?>"><?= htmlspecialchars($nombre) ?></label>
                         </div>
                     <?php endforeach; ?>
                 </section>
@@ -162,7 +167,7 @@ while ($row = mysqli_fetch_assoc($colores_query)) {
                             <h3 class="product-title"><?= htmlspecialchars($fila['nameProduct']) ?></h3>
                             <p class="product-price">$<?= number_format($fila['priceProduct'], 2) ?></p>
                             <p class="product-stock">Disponibles: <?= htmlspecialchars($fila['quantityProduct']) ?></p>
-                            <p class="product-category"><?= htmlspecialchars($fila['categoryProduct']) ?></p>
+                            <p class="product-category"><?= htmlspecialchars($fila['nameCategory'] ?? 'Sin categoría') ?></p>
                             
                             <?php if (!empty($fila['descriptionProduct'])): ?>
                                 <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">

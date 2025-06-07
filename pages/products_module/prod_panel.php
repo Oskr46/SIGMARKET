@@ -28,10 +28,11 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Consulta modificada para incluir las imágenes
-$query = "SELECT p.*, i.urlImage 
+// Consulta modificada para incluir las imágenes y el nombre de la categoría
+$query = "SELECT p.*, i.urlImage, c.nameCategory 
           FROM products p
-          LEFT JOIN imageproduct i ON p.idProduct = i.idProduct";
+          LEFT JOIN imageproduct i ON p.idProduct = i.idProduct
+          LEFT JOIN category c ON p.categoryProduct = c.idCategory";
 $result = mysqli_query($conn, $query);
 
 include('../../components/header_footer.php');
@@ -63,6 +64,8 @@ include('../../components/header_footer.php');
                 <li><a class="module" href="../panels/admin_panel.php">Dashboard</a></li>
                 <li class="active">Productos</li>
                 <li><a class="module" href="../users_module/users_panel.php">Usuarios</a></li>
+                <li><a class="module" href="../category/category_panel.php">Categorías</a></li>
+                <li><a class="module" href="../panels/compras_panel.php">Ver Historial de Compras</a></li>
             </ul>
         </aside>
 
@@ -86,7 +89,7 @@ include('../../components/header_footer.php');
                                 <th>Precio</th>
                                 <th>Color</th>
                                 <th>Etiqueta</th>
-                                <th>Categoria</th>
+                                <th>Categoría</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -103,16 +106,16 @@ include('../../components/header_footer.php');
                                             <div class="no-image">Sin imagen</div>
                                         <?php endif; ?>
                                     </td>
-                                    <td><?php echo $row['nameProduct']; ?></td>
-                                    <td><?php echo substr($row['descriptionProduct'], 0, 50) . '...'; ?></td>
+                                    <td><?php echo htmlspecialchars($row['nameProduct']); ?></td>
+                                    <td><?php echo substr(htmlspecialchars($row['descriptionProduct']), 0, 50) . '...'; ?></td>
                                     <td>$<?php echo number_format($row['priceProduct'], 2); ?></td>
                                     <td>
                                         <?php if(!empty($row['colorProduct'])): ?>
-                                            <span style="display: inline-block; width: 15px; height: 15px; background: <?php echo $row['colorProduct']; ?>; border-radius: 50%; border: 1px solid #ddd;"></span>
+                                            <span style="display: inline-block; width: 15px; height: 15px; background: <?php echo htmlspecialchars($row['colorProduct']); ?>; border-radius: 50%; border: 1px solid #ddd;"></span>
                                         <?php endif; ?>
                                     </td>
-                                    <td><?php echo $row['labelProduct']; ?></td>
-                                    <td><?php echo $row['categoryProduct']; ?></td>
+                                    <td><?php echo htmlspecialchars($row['labelProduct']); ?></td>
+                                    <td><?php echo !empty($row['nameCategory']) ? htmlspecialchars($row['nameCategory']) : 'Sin categoría'; ?></td>
                                     <td>
                                         <div class="action-btns">
                                             <a href="edit_product.php?id=<?php echo $row['idProduct']; ?>" class="edit-btn">Editar</a>
